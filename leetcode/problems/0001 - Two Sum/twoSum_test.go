@@ -28,10 +28,6 @@ func TestTwoSum(t *testing.T) {
 
 		result := twoSum(nums, target)
 
-		if len(result) != len(expected) {
-			t.Errorf("Incorrect length for result1")
-		}
-
 		if !reflect.DeepEqual(result, expected) {
 			t.Errorf("Expected %q, but got %q", expected, result)
 		}
