@@ -2,6 +2,7 @@ package twoSum
 
 import (
 	"fmt"
+	"reflect"
 	"testing"
 )
 
@@ -31,10 +32,8 @@ func TestTwoSum(t *testing.T) {
 			t.Errorf("Incorrect length for result1")
 		}
 
-		for i := range expected {
-			if result[i] != expected[i] {
-				t.Errorf("Expected %q, but got %q", expected, result)
-			}
+		if !reflect.DeepEqual(result, expected) {
+			t.Errorf("Expected %q, but got %q", expected, result)
 		}
 
 		fmt.Println("Success! Test case", r+1, "gave result", result)
