@@ -1,0 +1,42 @@
+package twoSum
+
+import (
+	"fmt"
+	"testing"
+)
+
+func TestTwoSum(t *testing.T) {
+	numSlices := [][]int{
+		{2, 7, 11, 15},
+		{3, 2, 4},
+		{3, 3},
+	}
+
+	targets := []int{9, 6, 6}
+
+	expectedResults := [][]int{
+		{0, 1},
+		{1, 2},
+		{0, 1},
+	}
+
+	for r := range numSlices {
+		nums := numSlices[r]
+		target := targets[r]
+		expected := expectedResults[r]
+
+		result := twoSum(nums, target)
+
+		if len(result) != len(expected) {
+			t.Errorf("Incorrect length for result1")
+		}
+
+		for i := range expected {
+			if result[i] != expected[i] {
+				t.Errorf("Expected %q, but got %q", expected, result)
+			}
+		}
+
+		fmt.Println("Success! Test case", r+1, "gave result", result)
+	}
+}
